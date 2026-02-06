@@ -1,5 +1,5 @@
 {
-  "name": "cosmium",
+  "name": "npm-graph-bed",
   "version": "0.0.6",
   "main": "index.js",
   "scripts": {
@@ -7,5 +7,5 @@
   },
   "author": "cosima",
   "license": "ISC",
-  "description": "Cosmium package"
+  "description": "npm graph bed - free image hosting solution using npm CDN"
 }

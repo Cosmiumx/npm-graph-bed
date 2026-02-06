@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="https://unpkg.com/cosmium@latest/images/other/npm-pic.png" alt="npm图床" width="200"/>
+  <img src="https://unpkg.com/npm-graph-bed@latest/img/other/npm-pic.png" alt="npm图床" width="200"/>
   <p><strong>利用 npm 包作为免费、稳定的图床解决方案</strong></p>
   <p>
-    <img src="https://img.shields.io/npm/v/cosmium?style=flat-square" alt="npm version"/>
-    <img src="https://img.shields.io/npm/dm/cosmium?style=flat-square" alt="downloads"/>
-    <img src="https://img.shields.io/github/license/Cosmiumx/cosmium?style=flat-square" alt="license"/>
+    <img src="https://img.shields.io/npm/v/npm-graph-bed?style=flat-square" alt="npm version"/>
+    <img src="https://img.shields.io/npm/dm/npm-graph-bed?style=flat-square" alt="downloads"/>
+    <img src="https://img.shields.io/github/license/cosima/npm-graph-bed?style=flat-square" alt="license"/>
   </p>
 </div>
 
@@ -32,10 +32,10 @@
 
 ```
 # unpkg
-https://unpkg.com/cosmium@latest/images/your-image.png
+https://unpkg.com/npm-graph-bed@latest/img/your-image.png
 
 # jsdelivr
-https://cdn.jsdelivr.net/npm/cosmium@latest/images/your-image.png
+https://cdn.jsdelivr.net/npm/npm-graph-bed@latest/img/your-image.png
 ```
 
 ## 🚀 快速开始
@@ -80,7 +80,7 @@ https://cdn.jsdelivr.net/npm/cosmium@latest/images/your-image.png
 1. 将图片放入 `images` 目录
 2. 提交代码：
    ```bash
-   git add images/
+   git add img/
    git commit -m "feat: add new images"
    git push origin master
    ```
@@ -95,18 +95,18 @@ https://cdn.jsdelivr.net/npm/cosmium@latest/images/your-image.png
 发布成功后，使用以下链接访问图片：
 
 ```markdown
-![图片描述](https://unpkg.com/your-package-name@latest/images/your-image.png)
+![图片描述](https://unpkg.com/npm-graph-bed@latest/img/your-image.png)
 ```
 
 ## 📁 项目结构
 
 ```
-cosmium/
+npm-graph-bed/
 ├── .github/
 │   └── workflows/
 │       └── publish.yml      # GitHub Actions 自动发布配置
-├── images/                  # 图片存储目录
-│   └── npm-pic.png
+├── img/                     # 图片存储目录
+│   └── other/npm-pic.png
 ├── index.js                 # 包入口文件
 ├── package.json            # 包配置文件
 └── README.md               # 项目说明
@@ -116,7 +116,7 @@ cosmium/
 
 ```mermaid
 graph LR
-    A[上传图片到 images/] --> B[提交到 GitHub]
+    A[上传图片到 img/] --> B[提交到 GitHub]
     B --> C[触发 GitHub Actions]
     C --> D[自动提升版本号]
     D --> E[发布到 npm]
