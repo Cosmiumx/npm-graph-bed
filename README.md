@@ -1,16 +1,16 @@
 <div align="center">
-  <img src="https://unpkg.com/npm-graph-bed@latest/img/other/npm-pic.png" alt="npm图床" width="200"/>
-  <p><strong>利用 npm 包作为免费、稳定的图床解决方案</strong></p>
+  <img src="https://unpkg.com/npm-graph-bed@latest/img/other/npm-pic.png" alt="npm图床模板" width="200"/>
+  <p><strong>npm CDN 图床模板 - 供 Fork 使用的完整解决方案</strong></p>
   <p>
-    <img src="https://img.shields.io/npm/v/npm-graph-bed?style=flat-square" alt="npm version"/>
-    <img src="https://img.shields.io/npm/dm/npm-graph-bed?style=flat-square" alt="downloads"/>
-    <img src="https://img.shields.io/github/license/cosima/npm-graph-bed?style=flat-square" alt="license"/>
+    <img src="https://img.shields.io/github/forks/cosmium/npm-graph-bed?style=flat-square" alt="GitHub forks"/>
+    <img src="https://img.shields.io/github/stars/cosmium/npm-graph-bed?style=flat-square" alt="GitHub stars"/>
+    <img src="https://img.shields.io/github/license/cosmium/npm-graph-bed?style=flat-square" alt="license"/>
   </p>
 </div>
 
-## 📖 简介
+## 📖 项目简介
 
-本项目利用 npm 的 CDN 分发特性，将图片发布为 npm 包，实现免费、稳定的图床服务。通过 GitHub Actions 自动化发布流程，每次提交图片后自动发布到 npm，无需手动操作。
+这是一个用于创建个人图床的完整模板项目。通过 Fork 此仓库，你可以快速搭建属于自己的基于 npm CDN 的图床服务。项目集成了 GitHub Actions 自动化流程，每次提交图片后会自动发布到 npm，实现免费、稳定的图床服务。
 
 ## ✨ 特性
 
@@ -20,23 +20,27 @@
 - 📦 **版本管理** - 每次提交自动升级版本号
 - 🔒 **稳定可靠** - npm 作为全球最大的包管理平台，稳定性有保障
 
-## 🎯 原理
+## 🎯 模板工作原理
 
-1. **图片存储**：将图片放在 npm 包的 `images` 目录中
-2. **自动发布**：提交代码到 GitHub 后，GitHub Actions 自动将包发布到 npm
-3. **CDN 访问**：通过 unpkg、jsdelivr 等 CDN 服务访问图片
+1. **Fork 仓库**：Fork 此模板仓库到你的 GitHub 账户
+2. **配置项目**：设置 npm token 和修改包名
+3. **图片存储**：将图片放在 npm 包的 `img` 目录中
+4. **自动发布**：提交代码到 GitHub 后，GitHub Actions 自动将包发布到 npm
+5. **CDN 访问**：通过 unpkg、jsdelivr 等 CDN 服务访问图片
 
 ### 访问方式
 
-发布后，图片可通过以下 CDN 访问：
+当您完成配置并发布后，图片可通过以下 CDN 访问：
 
 ```
 # unpkg
-https://unpkg.com/npm-graph-bed@latest/img/your-image.png
+https://unpkg.com/[your-package-name]@[version]/img/your-image.png
 
 # jsdelivr
-https://cdn.jsdelivr.net/npm/npm-graph-bed@latest/img/your-image.png
+https://cdn.jsdelivr.net/npm/[your-package-name]@[version]/img/your-image.png
 ```
+
+> **注意**：将 `[your-package-name]` 替换为您在 `package.json` 中设置的包名，将 `[version]` 替换为具体的版本号或使用 `latest`。
 
 ## 🚀 快速开始
 
@@ -61,19 +65,20 @@ https://cdn.jsdelivr.net/npm/npm-graph-bed@latest/img/your-image.png
    - Name: `NPM_TOKEN`
    - Value: 粘贴你的 npm token
 
-### 4. 修改包名
+### 4. 修改模板中的占位符
 
-编辑 `package.json`，将包名改为你自己的：
+编辑 `package.json`，将包名改为你的自定义名称：
 
 ```json
 {
-  "name": "your-package-name",
+  "name": "your-image-hosting-package",
   "version": "0.0.1",
+  "description": "My personal image hosting solution using npm CDN",
   ...
 }
 ```
 
-**注意**：包名必须是 npm 上未被占用的名称。
+**注意**：包名必须是 npm 上未被占用的唯一名称。同时记得更新描述文字以符合你的项目。
 
 ### 5. 上传图片
 
@@ -90,13 +95,15 @@ https://cdn.jsdelivr.net/npm/npm-graph-bed@latest/img/your-image.png
    - 发布到 npm
    - 创建版本 tag
 
-### 6. 使用图片
+### 6. 使用您的图床
 
-发布成功后，使用以下链接访问图片：
+发布成功后，使用以下格式访问您的图片：
 
 ```markdown
-![图片描述](https://unpkg.com/npm-graph-bed@latest/img/your-image.png)
+![图片描述](https://unpkg.com/your-package-name@latest/img/your-image.png)
 ```
+
+在 Markdown 或 HTML 中都可以使用这些链接。
 
 ## 📁 项目结构
 
@@ -124,22 +131,24 @@ graph LR
     F --> G[通过 CDN 访问图片]
 ```
 
-## 💡 使用建议
+## 💡 模板使用建议
 
-1. **图片优化**：上传前压缩图片，减小包体积
-2. **命名规范**：使用有意义的文件名，便于管理
-3. **版本控制**：重要图片建议指定具体版本号而非 `@latest`
-4. **包大小限制**：npm 包有大小限制，建议单个包不超过 100MB
+1. **个性化定制**：Fork 后根据需要修改 README、描述等信息
+2. **图片优化**：上传前压缩图片，减小包体积
+3. **命名规范**：使用有意义的文件名，便于管理
+4. **版本控制**：重要图片建议指定具体版本号而非 `@latest`
+5. **包大小限制**：npm 包有大小限制，建议单个包不超过 100MB
 
-## 🔧 高级配置
+## 🛠️ 模板自定义选项
 
-### 使用 Personal Access Token
+### 可选配置
 
-如果推送遇到权限问题，可以配置 GitHub Personal Access Token：
+Fork 本模板后，您可以根据需要自定义以下内容：
 
-1. 创建 PAT：https://github.com/settings/tokens
-2. 勾选 `repo` 权限
-3. 在仓库 Secrets 中添加 `GH_PAT`
+- **项目名称**：修改 `package.json` 中的 `name` 字段
+- **版本策略**：编辑 `.github/workflows/publish.yml` 中的版本提升命令
+- **目录结构**：修改图片存储目录（记得同步更新 GitHub Actions 配置）
+- **徽章链接**：更新 README 中的 npm 和 GitHub 链接指向您的项目
 
 ### 自定义版本提升策略
 
@@ -167,9 +176,11 @@ npm version major
 
 ISC
 
-## 🤝 贡献
+## 📄 模板使用说明
 
-欢迎提交 Issue 和 Pull Request！
+此仓库是一个模板，用于创建个人图床项目。如果您发现了模板中的问题或想改进模板，请在原始仓库中提交 Issue 或 Pull Request。
+
+原始模板仓库：[https://github.com/cosmium/npm-graph-bed](https://github.com/cosmium/npm-graph-bed)
 
 ---
 
